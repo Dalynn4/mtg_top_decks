@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "mtg_top_decks"
 
-mtg_top_decks::CLI.new.call
+Commandline.new.call
