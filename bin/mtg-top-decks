@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "mtg_top_decks"
+require_relative '../config/environment'
 
-Commandline.new.call
+CommandLine.new.call
