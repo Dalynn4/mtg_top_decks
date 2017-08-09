@@ -7,7 +7,7 @@ class CommandLine
     puts "3. Legacy"
     input = gets.chomp
     if input.to_i == 1
-      puts "standard decklists"
+      MetagameScraper.new.standardscraper
     elsif input.to_i == 2
       puts "modern decklists"
     elsif input.to_i == 3
