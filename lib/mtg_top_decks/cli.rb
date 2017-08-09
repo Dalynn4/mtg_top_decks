@@ -7,15 +7,19 @@ class CommandLine
     puts "3. Legacy"
     input = gets.chomp
     if input.to_i == 1
+      puts "Please select a date:"
       MetagameScraper.new.standardscraper
     elsif input.to_i == 2
-      puts "modern decklists"
+      puts "Please select a date:"
+      MetagameScraper.new.modernscraper
     elsif input.to_i == 3
-      puts "legacy decklists"
+      puts "Please select a date:"
+      MetagameScraper.new.legacyscraper
     elsif input == "exit"
       puts "Thank you for using MtG: Top Decks!"
     else
       puts "Please enter a valid input."
+      self.call
     end
   end
 end
