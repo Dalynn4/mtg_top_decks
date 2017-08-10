@@ -8,7 +8,8 @@ class CommandLine
     input = gets.chomp
     if input.to_i == 1
       puts "Please select a date:"
-      MetagameScraper.new.standardscraper
+      #MetagameScraper.new.standardscraper
+      Events.new(1).standardevents
     elsif input.to_i == 2
       puts "Please select a date:"
       MetagameScraper.new.modernscraper
