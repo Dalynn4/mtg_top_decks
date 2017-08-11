@@ -2,7 +2,7 @@ class MetagameScraper
 
 
 
-def standardscraper
+def standard_scraper
   standard = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/standard"))
   counter = 1
   standard.css(".decks-sidebar h4").each do |event|
@@ -11,7 +11,7 @@ def standardscraper
    end
  end
 
-def modernscraper
+def modern_scraper
   modern = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/modern"))
   counter = 1
   modern.css(".decks-sidebar h4").each do |event|
@@ -20,7 +20,7 @@ def modernscraper
    end
  end
 
-def legacyscraper
+def legacy_scraper
   legacy = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/legacy"))
   counter = 1
   legacy.css(".decks-sidebar h4").each do |event|
