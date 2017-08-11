@@ -7,31 +7,74 @@ def initialize(deck_selected, event_date_selected)
   @array_of_deck_urls = []
 end
 
- def show_decklist
+ def show_decklist_standard
   standard = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/standard"))
   standardevent = Nokogiri::HTML(open("https://www.mtggoldfish.com#{standard.css(".decks-sidebar h4 a")[@event_date_selected]["href"]}"))
+
   standardevent.css(".tournament-decklist-odd  td a").each do |url|
       @array_of_deck_urls << url["href"]
    end
   standardevent.css(".tournament-decklist-event  td a").each do |url|
       @array_of_deck_urls << url["href"]
   end
-  @array_of_deck_urls
-  currentdeckselection = Nokogiri::HTML(open("https://www.mtggoldfish.com#{@array_of_deck_urls[@deck_selected]}"))
 
+  currentdeckselection = Nokogiri::HTML(open("https://www.mtggoldfish.com#{@array_of_deck_urls[@deck_selected]}"))
   deckformat = currentdeckselection.css(".deck-col-qty,.deck-col-card").collect do |card|
       card.text.strip
    end
-
 
   counter = 0
   while counter < deckformat.length
     puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
     counter += 2
   end
-
-
  end
+
+ def show_decklist_modern
+  modern = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/modern"))
+  modernevent = Nokogiri::HTML(open("https://www.mtggoldfish.com#{modern.css(".decks-sidebar h4 a")[@event_date_selected]["href"]}"))
+
+  modernevent.css(".tournament-decklist-odd  td a").each do |url|
+      @array_of_deck_urls << url["href"]
+   end
+  modernevent.css(".tournament-decklist-event  td a").each do |url|
+      @array_of_deck_urls << url["href"]
+  end
+
+  currentdeckselection = Nokogiri::HTML(open("https://www.mtggoldfish.com#{@array_of_deck_urls[@deck_selected]}"))
+  deckformat = currentdeckselection.css(".deck-col-qty,.deck-col-card").collect do |card|
+      card.text.strip
+   end
+
+  counter = 0
+  while counter < deckformat.length
+    puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
+    counter += 2
+  end
+end
+
+def show_decklist_legacy
+ legacy = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/legacy"))
+ legacyevent = Nokogiri::HTML(open("https://www.mtggoldfish.com#{legacy.css(".decks-sidebar h4 a")[@event_date_selected]["href"]}"))
+
+ legacyevent.css(".tournament-decklist-odd  td a").each do |url|
+     @array_of_deck_urls << url["href"]
+  end
+ legacyevent.css(".tournament-decklist-event  td a").each do |url|
+     @array_of_deck_urls << url["href"]
+ end
+
+ currentdeckselection = Nokogiri::HTML(open("https://www.mtggoldfish.com#{@array_of_deck_urls[@deck_selected]}"))
+ deckformat = currentdeckselection.css(".deck-col-qty,.deck-col-card").collect do |card|
+     card.text.strip
+  end
+
+ counter = 0
+ while counter < deckformat.length
+   puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
+   counter += 2
+ end
+end
 
  def set_event_date_selected(number)
    if number == 1
@@ -84,6 +127,4 @@ end
      puts "Invalid selection"
    end
  end
-
-
 end
