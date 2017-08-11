@@ -28,6 +28,7 @@ end
     puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
     counter += 2
   end
+  puts "The last 15 cards listed are the sideboard for the deck."
  end
 
  def show_decklist_modern
@@ -51,6 +52,7 @@ end
     puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
     counter += 2
   end
+  puts "The last 15 cards listed are the sideboard for the deck."
 end
 
 def show_decklist_legacy
@@ -74,6 +76,7 @@ def show_decklist_legacy
    puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
    counter += 2
  end
+ puts "The last 15 cards listed are the sideboard for the deck."
 end
 
  def set_event_date_selected(number)
