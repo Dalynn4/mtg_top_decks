@@ -16,8 +16,17 @@ end
   end
   @array_of_deck_urls
   currentdeckselection = Nokogiri::HTML(open("https://www.mtggoldfish.com#{@array_of_deck_urls[0]}"))
-   puts currentdeckselection.css(".deck-view-deck-table").text.strip
 
+  deckformat = currentdeckselection.css(".deck-col-qty,.deck-col-card").collect do |card|
+      card.text.strip
+   end
+
+
+  counter = 0
+  while counter < deckformat.length
+    puts "#{deckformat[counter]} #{deckformat[counter + 1]}"
+    counter += 2
+  end
 
 
  end
