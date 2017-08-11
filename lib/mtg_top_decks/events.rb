@@ -9,20 +9,20 @@ end
  def standardevents
   standard = Nokogiri::HTML(open("https://www.mtggoldfish.com/metagame/standard"))
   standardevent = Nokogiri::HTML(open("https://www.mtggoldfish.com#{standard.css(".decks-sidebar h4 a")[@event_date_selected]["href"]}"))
-  #standard.css(".decks-sidebar .col-deck .deck-price-paper").text
-  #tandard.css(".decks-sidebar .col-w").text
-  #standard.css(".decks-sidebar .col-l").text
-  #standard.css(".decks-sidebar h4 a")[1]["href"]
+
   standardevent.css(".tournament-decklist-odd  td a").each do |deck|
     @array_of_decks << deck.text
   end
   standardevent.css(".tournament-decklist-event  td a").each do |deck|
     @array_of_decks << deck.text
   end
+
   counter = 3
-   @array_of_decks. each do |deck|
+  counter2 = 1
+   @array_of_decks.each do |deck|
      if counter % 3 == 0
-       puts deck
+       puts "#{counter2}. #{deck}."
+       counter2 += 1
      end
      counter +=1
    end
