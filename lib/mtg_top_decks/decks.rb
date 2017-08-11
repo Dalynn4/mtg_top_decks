@@ -3,8 +3,8 @@ class Decks
   attr_accessor :deck_selected, :event_date_selected, :standard, :standard_event, :modern, :modern_event, :legacy, :legacy_event
 
 def initialize(deck_selected, event_date_selected)
-  set_deck_selected(deck_selected)
-  set_event_date_selected(event_date_selected)
+  @deck_selected = (deck_selected * 3) - 3
+  @event_date_selected = (event_date_selected * 2) - 1
   @array_of_deck_urls = []
 end
 
@@ -64,55 +64,4 @@ def list_cards
   puts "The last 15 cards listed are the sideboard for the deck."
 end
 
- def set_event_date_selected(number)
-   if number == 1
-     @event_date_selected = 1
-   elsif number == 2
-     @event_date_selected = 3
-   elsif number == 3
-     @event_date_selected = 5
-   elsif number == 4
-     @event_date_selected = 7
-   elsif number == 5
-     @event_date_selected = 9
-   elsif number == 6
-     @event_date_selected = 11
-   elsif number == 7
-     @event_date_selected = 13
-   elsif number == 8
-     @event_date_selected = 15
-   elsif number == 9
-     @event_date_selected = 17
-   elsif number == 10
-     @event_date_selected = 19
-   else
-     puts "Invalid selection"
-   end
- end
-
- def set_deck_selected(number)
-   if number == 1
-     @deck_selected = 0
-   elsif number == 2
-     @deck_selected = 3
-   elsif number == 3
-     @deck_selected = 6
-   elsif number == 4
-     @deck_selected = 9
-   elsif number == 5
-     @deck_selected = 12
-   elsif number == 6
-     @deck_selected = 15
-   elsif number == 7
-     @deck_selected = 18
-   elsif number == 8
-     @deck_selected = 21
-   elsif number == 9
-     @deck_selected = 24
-   elsif number == 10
-     @deck_selected = 27
-   else
-     puts "Invalid selection"
-   end
- end
-end
+  end
