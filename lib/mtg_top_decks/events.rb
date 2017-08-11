@@ -3,6 +3,7 @@ attr_accessor :event_date_selected
 
 def initialize(number_selected)
   set_event_date_selected(number_selected)
+  @array_of_decks = []
 end
 
  def standardevents
@@ -12,8 +13,19 @@ end
   #tandard.css(".decks-sidebar .col-w").text
   #standard.css(".decks-sidebar .col-l").text
   #standard.css(".decks-sidebar h4 a")[1]["href"]
-  puts "https://www.mtggoldfish.com#{standard.css(".decks-sidebar h4 a")[@event_date_selected]["href"]}"#standardevent.css#(".tournament-decklist-odd a").text
-
+  standardevent.css(".tournament-decklist-odd  td a").each do |deck|
+    @array_of_decks << deck.text
+  end
+  standardevent.css(".tournament-decklist-event  td a").each do |deck|
+    @array_of_decks << deck.text
+  end
+  counter = 3
+   @array_of_decks. each do |deck|
+     if counter % 3 == 0
+       puts deck
+     end
+     counter +=1
+   end
  end
 
  def set_event_date_selected(number)
