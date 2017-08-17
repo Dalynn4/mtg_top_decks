@@ -1,8 +1,6 @@
 # MtgTopDecks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mtg_top_decks`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Mtg: Top Decks. This is a CLI based gem that gathers information on current top performing decks for Magic: the Gathering, the trading card game. Users will select a metagame of their interest to see a list of the last ten competitive events for that metagame. The user can then select an event to see the top decks for that event. The user can then select a deck to view a decklist to see which cards were played.
 
 ## Installation
 
